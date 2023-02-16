@@ -5,7 +5,11 @@ import { RouterView } from 'vue-router';
 
 <template>
     <div :class="$style.App">
-        <RouterView :class="$style.view"/>
+        <routerView v-slot="{ Component }" :class="$style.view">
+            <transition name="page" mode="out-in">
+                <component :is="Component" />
+            </transition>
+        </routerView>
     </div>
 </template>
 
