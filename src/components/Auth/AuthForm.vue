@@ -4,10 +4,11 @@ import { computed, reactive, ref } from 'vue';
 import { useVuelidate } from '@vuelidate/core';
 import { required, email } from '@vuelidate/validators';
 import { useRouter } from 'vue-router';
+import { inject } from 'vue';
 
 // Utils
 import { setCookie } from '~/assets/utils/cookies-utils';
-import { fakePromise } from '~/assets/utils/form-utils';
+import { $api } from '~/plugins/api';
 
 // UiComponents
 import UiFormCell from '~/components/ui/UiFormCell/UiFormCell.vue';
@@ -15,6 +16,7 @@ import UiInput from '~/components/ui/UiInput/UiInput.vue';
 import UiCheckbox from '~/components/ui/UiCheckbox/UiCheckbox.vue';
 import UiButton from '~/components/ui/UiButton/UiButton.vue';
 
+const axios: any = inject('axios');
 const $router = useRouter();
 
 interface IAuthForm {
@@ -46,21 +48,26 @@ async function onSubmit() {
 
     try {
         serverErrors.value = {};
+        const potential = Number(Math.random().toFixed(2)) * 100;
 
-        await fakePromise(300, {
-            response: {
-                data: {
-                    email: 'A user with such an email already exists',
-                },
-            },
-        });
+        if (potential % 2) {
+            await axios.post($api.auth.successLogin);
+        } else {
+            await axios.post($api.auth.errorLogin);
+        }
+
         setCookie('auth_token', Math.random());
         $router.push('/');
     } catch (e: any) {
-        if (e?.response) {
-            serverErrors.value = e.response.data;
-        }
         console.error('AUTH_FORM:ON_SUBMIT:', e);
+
+        switch (e.code) {
+            case 'ERR_BAD_REQUEST':
+                serverErrors.value = {
+                    email: 'Invalid email address',
+                };
+                break;
+        }
     }
 }
 
