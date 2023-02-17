@@ -117,7 +117,11 @@ const getError = computed(() => (key: string) => {
 
                 </div>
 
-                <UiCheckbox v-model="actualValue.subscribe" :class="$style.checkbox">
+                <UiCheckbox
+                    id="subscribe"
+                    v-model="actualValue.subscribe"
+                    :class="$style.checkbox"
+                >
                     I want to reveive updates via email.
                 </UiCheckbox>
 

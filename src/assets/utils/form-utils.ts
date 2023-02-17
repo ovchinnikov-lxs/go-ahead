@@ -15,7 +15,6 @@ const fakePromise = (timeout: number, errorResponse?: object): Promise<object | 
     }, timeout);
 });
 
-
 export {
     fakePromise,
 };

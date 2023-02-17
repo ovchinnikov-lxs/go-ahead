@@ -17,6 +17,7 @@
             ],
         },
         "types": [
+            "cypress",
             "jest",
             "node",
             "vite/client"

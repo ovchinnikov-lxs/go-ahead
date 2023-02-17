@@ -16,6 +16,7 @@ npm run build
 npm run preview
 ```
 
+### Dev
 
 #### Режим разработки
 ```sh
@@ -27,7 +28,13 @@ npm run dev
 npm run lint:fix
 ```
 
-#### Запуск тестов
+#### Запуск unit тестов
 ```sh
-npm run test
+npm run unit:test
 ```
+
+#### Запуск e2e тестов
+```sh
+npm run e2e:test
+```
+
