@@ -1,6 +1,7 @@
 <script setup lang="ts">
 // Lib Components
 import { UiCheckbox } from '@ovchinnikov-lxs/ui-kit';
+import UiIcon from '~/components/ui/UiIcon/UiIcon.vue';
 
 defineProps({
     color: {
@@ -12,17 +13,11 @@ defineProps({
 <template>
     <UiCheckbox v-bind="$attrs" :color="color">
         <template #checkbox>
-            <svg width="12"
-                 height="12"
-                 viewBox="0 0 12 12"
-                 fill="none"
-                 xmlns="http://www.w3.org/2000/svg"
-            >
-                <path d="M1 6.5L4.5 10L10.5 1"
-                      stroke="currentColor"
-                      stroke-width="2.5"
-                />
-            </svg>
+            <UiIcon
+                name="check"
+                size="custom"
+                viewBox="0 0 12 12"
+            />
         </template>
 
         <template #default>
@@ -62,11 +57,17 @@ defineProps({
                 box-shadow: 0 $unit $unit rgba($black, .25);
                 transition: all .3s ease;
 
-                svg {
+                .UiIcon {
                     flex-shrink: 0;
+                    width: mul($unit, 3);
+                    height: mul($unit, 3);
                     opacity: 0;
                     transform: rotate(10deg) scale(.8);
                     transition: opacity .2s ease, transform .2s ease;
+
+                    svg {
+                        fill: none;
+                    }
                 }
             }
         }
@@ -99,7 +100,7 @@ defineProps({
                     background-color: $primary-color;
                     color: $white;
 
-                    svg {
+                    .UiIcon {
                         opacity: 1;
                         transform: rotate(0) scale(1);
                     }
@@ -111,7 +112,7 @@ defineProps({
     &.--is-checked {
         #{$checkbox} {
             &__button {
-                svg {
+                .UiIcon {
                     opacity: 1;
                     transform: rotate(0) scale(1);
                 }

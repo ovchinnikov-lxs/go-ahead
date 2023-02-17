@@ -26,23 +26,23 @@ defineProps({
 <style lang="scss">
 .UiInput {
     position: relative;
-    border: none;
-    transition: outline-width .2s ease;
+    border-style: solid;
+    transition: none;
 
     &.--large-size {
         padding: mul($unit, 4);
         border-radius: $unit + 1px;
-        outline: 1px;
+        border-width: 1px;
 
         &:focus {
-            outline-width: $unit - 1px;
+            padding: mul($unit, 3.5);
+            border-width: $unit - 1px;
         }
     }
 
     &.--primary-color {
+        border-color: $primary-color;
         background-color: $white;
-        outline-color: $primary-color;
-        outline-style: solid;
         box-shadow: 0 $unit $unit rgba($black, .25);
     }
 
