@@ -3,7 +3,7 @@
 import { computed } from 'vue';
 
 // Lib Components
-import { UiIcon } from '@ovchinnikov-lxs/ui-kit';
+import { UiIcon } from '@ovchinnikov-lxs-frontend/ui-kit';
 
 // Utils
 import { iconDict } from '~/components/ui/UiIcon/iconList';

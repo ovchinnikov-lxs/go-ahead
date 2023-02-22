@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // Lib Components
-import { UiCheckbox } from '@ovchinnikov-lxs/ui-kit';
+import { UiCheckbox } from '@ovchinnikov-lxs-frontend/ui-kit';
 import UiIcon from '~/components/ui/UiIcon/UiIcon.vue';
 
 defineProps({

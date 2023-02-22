@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // Lib Components
-import { UiInput } from '@ovchinnikov-lxs/ui-kit';
+import { UiInput } from '@ovchinnikov-lxs-frontend/ui-kit';
 
 defineProps({
     color: {

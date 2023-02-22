@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // Lib Components
-import { UiButton } from '@ovchinnikov-lxs/ui-kit';
+import { UiButton } from '@ovchinnikov-lxs-frontend/ui-kit';
 
 defineProps({
     color: {

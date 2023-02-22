@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // Lib Components
-import { UiFormCell } from '@ovchinnikov-lxs/ui-kit';
+import { UiFormCell } from '@ovchinnikov-lxs-frontend/ui-kit';
 
 // UiComponents
 import UiIcon from '~/components/ui/UiIcon/UiIcon.vue';
